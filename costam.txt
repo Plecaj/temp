@@ -1,0 +1,60 @@
+#include <iostream>
+#include <random>
+
+#define PLATFORM_WINDOWS
+#ifdef PLATFORM_WINDOWS
+	#include <Windows.h>
+	 void coutColored(int color) {
+		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(console, color);
+		std::cout << "#" << std::endl;
+		SetConsoleTextAttribute(console, 7);
+	}
+	#define output(color) coutColored(color)
+#else
+	#define output(color) 
+#endif
+
+class Mastermind {
+public:
+	Mastermind() {
+		m_shouldRun = true;
+		m_turn = 0;
+		for (short i = 0; i < 4; i++) {
+			m_sequence[i] = std::rand() % 4;
+		}
+	}
+
+	bool checkSequence(std::vector<short> input) {
+		m_turn++;
+		for (short i = 0; i < 4; i++) {
+			// Check if element exits in sequence of correct colors
+			if (std::find(m_sequence.begin(), m_sequence.end(), &input[i]) != m_sequence.end()){
+				// Check if elemen is in correct position
+				if (input[i] == m_sequence[i]) {
+					output(10);
+				}
+				else {
+					output(14);
+				}
+			}
+		}
+	}
+
+	bool isRunning() {
+		return m_turn < 8 && m_shouldRun;
+	}
+private:
+	bool checkElem(short correctColor, short userColor) {
+
+	}
+private:
+	std::vector<short> m_sequence;
+	short m_turn;
+	bool m_shouldRun;
+};
+
+int main() {
+	Mastermind game();
+	while()
+}

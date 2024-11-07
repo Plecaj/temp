@@ -1,10 +1,11 @@
 #include <iostream>
+#include <array>
 #include <random>
 
 #define PLATFORM_WINDOWS
 #ifdef PLATFORM_WINDOWS
 	#include <Windows.h>
-	 void coutColored(int color) {
+	void coutColored(int color) {
 		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleTextAttribute(console, color);
 		std::cout << "#" << std::endl;
@@ -21,40 +22,76 @@ public:
 		m_shouldRun = true;
 		m_turn = 0;
 		for (short i = 0; i < 4; i++) {
-			m_sequence[i] = std::rand() % 4;
+			m_sequence[i] = std::rand() % 6;
 		}
 	}
 
-	bool checkSequence(std::vector<short> input) {
+	void checkSequence(short input[4]) {
 		m_turn++;
+		bool allGood = true;
 		for (short i = 0; i < 4; i++) {
-			// Check if element exits in sequence of correct colors
-			if (std::find(m_sequence.begin(), m_sequence.end(), &input[i]) != m_sequence.end()){
-				// Check if elemen is in correct position
-				if (input[i] == m_sequence[i]) {
-					output(10);
-				}
-				else {
-					output(14);
-				}
+			if (input[i] == m_sequence[i]) {
+				output(10);
+			}
+			else if (std::find(m_sequence.begin(), m_sequence.end(), input[i]) != m_sequence.end()) {
+				output(14);
+				allGood = false;
+			}
+			else {
+				output(12);
+				allGood = false;
 			}
 		}
+		m_shouldRun = !allGood;
 	}
 
 	bool isRunning() {
 		return m_turn < 8 && m_shouldRun;
 	}
-private:
-	bool checkElem(short correctColor, short userColor) {
 
+	bool isGameWon() {
+		return m_turn < 8 && !m_shouldRun;
 	}
+
+	short* castIntoSequence(std::string input) {
+		short ans[4];
+		for (short i = 0; i < 4; i++) {
+			char elem = input[i];
+			switch(elem) {
+			case 'r': ans[i] = 0; break;
+			case 'g': ans[i] = 1; break;
+			case 'b': ans[i] = 2; break;
+			case 'y': ans[i] = 3; break;
+			case 'p': ans[i] = 4; break;
+			case 'o': ans[i] = 5; break;
+			default: return{};
+			}
+		}
+		return ans;
+	}
+
 private:
-	std::vector<short> m_sequence;
+	std::array<short, 4> m_sequence;
 	short m_turn;
 	bool m_shouldRun;
 };
 
 int main() {
-	Mastermind game();
-	while()
+	Mastermind game = Mastermind();
+	while (game.isRunning()) {
+		std::cout << "Input colors first character (r, g, b, y, p, o)" << std::endl;
+		std::string input;
+		std::cin >> input;
+		while (input.length() != 4 || game.castIntoSequence(input) == nullptr) {
+			std::cout << "Wrong input, try again" << std::endl;
+			std::cin >> input;
+		}
+		game.checkSequence(game.castIntoSequence(input));
+	}
+	if (game.isGameWon()) {
+		std::cout << "Won" << std::endl;
+	}
+	else {
+		std::cout << "Lost" << std::endl;
+	}
 }

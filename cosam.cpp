@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
 
 void printArr(int arr[], int size) {
     std::cout << "Arr: " << std::endl;
@@ -29,44 +30,44 @@ int main()
    * wyswietl t� tablice
    */
 
-    //const int N = 5;
-    //int arr[N];
-    //for (auto& element : arr) {
-    //    std::cin >> element;
-    //}
+   //const int N = 5;
+   //int arr[N];
+   //for (auto& element : arr) {
+   //    std::cin >> element;
+   //}
 
-    //printArr(arr, N);
-    //std::cout << std::endl;
+   //printArr(arr, N);
+   //std::cout << std::endl;
 
-    /*-------------------------------------------
-    * wyswietl wszystkie elementy tablicy na 3 sposoby: forem, foreach, whilem
-    *
+   /*-------------------------------------------
+   * wyswietl wszystkie elementy tablicy na 3 sposoby: forem, foreach, whilem
+   *
+   */
+
+   //for (int i = 0; i < N; i++) {
+   //    std::cout << arr[i] << "  ";
+   //}
+   //std::cout << std::endl;
+
+   //for (auto num : arr) {
+   //    std::cout << num << "  ";
+   //}
+   //std::cout << std::endl;
+
+   //int j = 0;
+   //while (j < N) {
+   //    std::cout << arr[j] << "  ";
+   //    j++;
+   //}
+   //std::cout << std::endl;
+
+   /*-------------------------------------------
+    * utworz tablice N=10 elementow np short bez znaku
+    * wygeneruj do tej tablicy N losowych liczb z zakresu 0-30
+    * wyswietl j�
+    * ponies wszystkie elementy tablicy do kwadratu
+    * wyswietl
     */
-
-    //for (int i = 0; i < N; i++) {
-    //    std::cout << arr[i] << "  ";
-    //}
-    //std::cout << std::endl;
-
-    //for (auto num : arr) {
-    //    std::cout << num << "  ";
-    //}
-    //std::cout << std::endl;
-
-    //int j = 0;
-    //while (j < N) {
-    //    std::cout << arr[j] << "  ";
-    //    j++;
-    //}
-    //std::cout << std::endl;
-
-    /*-------------------------------------------
-     * utworz tablice N=10 elementow np short bez znaku
-     * wygeneruj do tej tablicy N losowych liczb z zakresu 0-30
-     * wyswietl j�
-     * ponies wszystkie elementy tablicy do kwadratu
-     * wyswietl
-     */
 
     //const int secondArrSize = 10;
     //int secondArr[secondArrSize];
@@ -247,63 +248,102 @@ int main()
    * wypisz tablice
    */
 
-    //const int sixthArrSize = 10;
-    //int sixthArr[sixthArrSize];
-    //genRandomNums(sixthArr, sixthArrSize, 0, 15);
-    //int comparer;
-    //std::cout << "Wpisz liczbe - kazda mniejsza od niej w tavlicy bedie zamieniona na 0" << std::endl;
-    //std::cin >> comparer;
-    //std::cout << "Szosta tablica" << std::endl;
-    //printArr(sixthArr, sixthArrSize);
-    //for (auto& elem : sixthArr) {
-    //    if (elem < comparer)
-    //        elem = 0;
+   //const int sixthArrSize = 10;
+   //int sixthArr[sixthArrSize];
+   //genRandomNums(sixthArr, sixthArrSize, 0, 15);
+   //int comparer;
+   //std::cout << "Wpisz liczbe - kazda mniejsza od niej w tavlicy bedie zamieniona na 0" << std::endl;
+   //std::cin >> comparer;
+   //std::cout << "Szosta tablica" << std::endl;
+   //printArr(sixthArr, sixthArrSize);
+   //for (auto& elem : sixthArr) {
+   //    if (elem < comparer)
+   //        elem = 0;
+   //}
+   //std::cout << "Szosta tablica po zmianach" << std::endl;
+   //printArr(sixthArr, sixthArrSize);
+
+  /*-------------------------------------------
+  * zrob zamiane liczby z dziesietnej na binarna
+  * algorytm:  liczba np 6
+  * 6 :2 = 3 reszta 0
+  * 3:2 = 1 r 1
+  * 1:2 = 0 r 1
+  * wynik = 110 (czytamy od dolu te reszty)
+  */
+
+  //std::cout << "Podaj liczbe do zamiany na binarke" << std::endl;
+  //int inputForBinary;
+  //std::cin >> inputForBinary;
+  //std::string binaryValue = "";
+  //while (inputForBinary > 0) {
+  //    bool bit = inputForBinary % 2;
+  //    inputForBinary /= 2;
+  //    binaryValue += (char)bit + '0';
+  //}
+  //std::reverse(binaryValue.begin(), binaryValue.end());
+  //std::cout << "Binarna wartosc liczby: " << binaryValue << std::endl;
+
+ /*------------------------
+  -------------------
+  * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
+  */
+
+  //std::cout << "Podaj liczbe do zamiany na inny system liczbowy" << std::endl;
+  //int inputForChange;
+  //std::cin >> inputForChange;
+  //std::cout << "Podaj na jaki system np.(2 - binarny, 4 - czworkowy etc...)" << std::endl;
+  //int format;
+  //std::cin >> format;
+  //std::string otherFormatValue = "";
+  //while (inputForChange > 0) {
+  //    int val = inputForChange % format;
+  //    inputForChange /= format;
+  //    otherFormatValue += (char)val + '0';
+  //}
+  //std::reverse(otherFormatValue.begin(), otherFormatValue.end());
+  //std::cout << "Wartosc liczby: " << otherFormatValue << std::endl;
+
+
+  /*-------------------------------------------
+     *  napisz program pobierajacy 5 wyrazow i wpisujacy je do tablicy 5 elementow
+     wyswietl tablice
+     */
+
+    //const int stringArrSize = 5;
+    //std::string stringArr[stringArrSize];
+    //for (auto& elem : stringArr) {
+    //    std::string word;
+    //    std::cin >> word;
+    //    elem = word;
     //}
-    //std::cout << "Szosta tablica po zmianach" << std::endl;
-    //printArr(sixthArr, sixthArrSize);
-
-   /*-------------------------------------------
-   * zrob zamiane liczby z dziesietnej na binarna
-   * algorytm:  liczba np 6
-   * 6 :2 = 3 reszta 0
-   * 3:2 = 1 r 1
-   * 1:2 = 0 r 1
-   * wynik = 110 (czytamy od dolu te reszty)
-   */
-
-    //std::cout << "Podaj liczbe do zamiany na binarke" << std::endl;
-    //int inputForBinary;
-    //std::cin >> inputForBinary;
-    //std::string binaryValue = "";
-    //while (inputForBinary > 0) {
-    //    bool bit = inputForBinary % 2;
-    //    inputForBinary /= 2;
-    //    binaryValue += (char)bit + '0';
+    //std::cout << "Tablica z wyrazami: " << std::endl;
+    //for (auto word : stringArr) {
+    //    std::cout << word << "\t";
     //}
-    //std::reverse(binaryValue.begin(), binaryValue.end());
-    //std::cout << "Binarna wartosc liczby: " << binaryValue << std::endl;
-
-   /*------------------------
-    -------------------
-    * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
-    */
+    //std::cout << std::endl;
 
 
-    /*-------------------------------------------
-       *  napisz program pobierajacy 5 wyrazow i wpisujacy je do tablicy 5 elementow
-       wyswietl tablice
-       */
+     /*-------------------------------------------
+     * zrob zamiane liczby binarnej na dziesi�tn� (liczbe binarn� trzymac w stringu)
+     * algorytm: liczba = 110
+     * wynik = 1*2^2 + 1* 2^1 + 0 * 2^0 = 6
+     */
 
+    std::string binaryNumber;
+    std::cout << "Wpisz liczbe binarna do zamniany na system dziesiatkowy" << std::endl;
+    std::cin >> binaryNumber;
+    int position = 1;
+    int finalValue = 0;
+    for (int i = 0; i < binaryNumber.length(); i++) {
+        finalValue += (binaryNumber[i] - '0') * position);
+        position *= 10;
+    }
+    std::cout << "Liczba w dizesiatkowym: " << finalValue << std::endl;
 
-       /*-------------------------------------------
-       * zrob zamiane liczby binarnej na dziesi�tn� (liczbe binarn� trzymac w stringu)
-       * algorytm: liczba = 110
-       * wynik = 1*2^2 + 1* 2^1 + 0 * 2^0 = 6
-       */
-
-       /*-------------------------------------------
-        * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
-        */
+     /*-------------------------------------------
+      * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
+      */
 
 
 

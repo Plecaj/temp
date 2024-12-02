@@ -1,0 +1,24 @@
+Presentation Script: AI Basics
+Slide 1: What is Artificial Intelligence?
+"Hello everyone! Today we're going to talk about AI. Artificial Intelligence is like a smart computer system that can do things that normally need human thinking. Think about your phone recognizing your face or Siri understanding your voice - that's AI! Right now, most AI is 'narrow AI' - it's good at one specific thing, unlike humans who can do many different things."
+Slide 2: Key Components of AI Systems
+"To make AI work, we need four main things. First, we need lots of data - this is like the food for AI. Second, we need algorithms - these are like recipes that tell the computer what to do with the data. Third, we need powerful computers to process everything. And finally, we need training - this is how AI learns and gets better at its job."
+Slide 3: Machine Learning Fundamentals
+"Machine learning is how AI learns from examples. It's like teaching a child - but with data! There are three main ways AI learns:
+
+Supervised learning is like having a teacher who shows right and wrong examples
+Unsupervised learning is like letting AI find patterns by itself
+Reinforcement learning is like learning by trial and error - just like how we learn to ride a bike"
+
+Slide 4: Neural Networks
+"Neural networks are the brain of AI. Imagine a huge web of connected points, like a spider web. Each connection can become stronger or weaker as the AI learns - just like how our brain creates stronger connections when we learn something new. The more layers in this web, the more complex things the AI can understand."
+Slide 5: How AI Training Works
+"Training AI is like teaching a student. First, we collect lots of examples. Then we prepare this information so the computer can understand it. Next, we show these examples to the AI many times - this is called training. Finally, we test if the AI learned correctly. If it didn't, we adjust and try again. It's like practicing until you get good at something!"
+Slide 6: Real-World Applications
+"AI is already all around us! When you talk to Alexa - that's AI understanding your voice. When your phone camera makes your photos look better - that's AI. When doctors use computers to find diseases in X-rays - that's AI too! Self-driving cars, Netflix recommendations, and even some video game characters use AI."
+Slide 7: Current Limitations
+"But AI isn't perfect. It needs lots of examples to learn - much more than humans. It uses lots of electricity and expensive computers. Sometimes it makes silly mistakes that humans would never make. And most importantly, AI can only do what it was trained to do - it can't think creatively like humans."
+Slide 8: Future of AI
+"The future of AI is exciting! We're seeing new AI that can create art, write stories, and help with scientific discoveries. But we need to be careful about how we use AI. We need to think about jobs that might change, make sure AI is fair to everyone, and use it responsibly. The goal is to have AI help humans, not replace them."
+Closing
+"Thank you for listening! Does anyone have any questions about how AI works?"

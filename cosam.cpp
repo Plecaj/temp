@@ -310,42 +310,61 @@ int main()
      wyswietl tablice
      */
 
-    //const int stringArrSize = 5;
-    //std::string stringArr[stringArrSize];
-    //for (auto& elem : stringArr) {
-    //    std::string word;
-    //    std::cin >> word;
-    //    elem = word;
-    //}
-    //std::cout << "Tablica z wyrazami: " << std::endl;
-    //for (auto word : stringArr) {
-    //    std::cout << word << "\t";
-    //}
-    //std::cout << std::endl;
+     //const int stringArrSize = 5;
+     //std::string stringArr[stringArrSize];
+     //for (auto& elem : stringArr) {
+     //    std::string word;
+     //    std::cin >> word;
+     //    elem = word;
+     //}
+     //std::cout << "Tablica z wyrazami: " << std::endl;
+     //for (auto word : stringArr) {
+     //    std::cout << word << "\t";
+     //}
+     //std::cout << std::endl;
 
 
-     /*-------------------------------------------
-     * zrob zamiane liczby binarnej na dziesi�tn� (liczbe binarn� trzymac w stringu)
-     * algorytm: liczba = 110
-     * wynik = 1*2^2 + 1* 2^1 + 0 * 2^0 = 6
-     */
-
-    std::string binaryNumber;
-    std::cout << "Wpisz liczbe binarna do zamniany na system dziesiatkowy" << std::endl;
-    std::cin >> binaryNumber;
-    int position = 1;
-    int finalValue = 0;
-    for (int i = 0; i < binaryNumber.length(); i++) {
-        finalValue += (binaryNumber[i] - '0') * position);
-        position *= 10;
-    }
-    std::cout << "Liczba w dizesiatkowym: " << finalValue << std::endl;
-
-     /*-------------------------------------------
-      * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
+      /*-------------------------------------------
+      * zrob zamiane liczby binarnej na dziesi�tn� (liczbe binarn� trzymac w stringu)
+      * algorytm: liczba = 110
+      * wynik = 1*2^2 + 1* 2^1 + 0 * 2^0 = 6
       */
 
+    //std::string binarynumber;
+    //std::cout << "wpisz liczbe binarna do zamniany na system dziesiatkowy" << std::endl;
+    //std::cin >> binarynumber;
+    //int position = 1;
+    //int finalvalue = 0;
+    //for (int i = binarynumber.length() - 1; i >= 0; i--) {
+    //    if (binarynumber[i]=='1'){
+    //        finalvalue += position;
+    //    }
+    //    position *= 2;
+    //}
+    //std::cout << "liczba w dizesiatkowym: " << finalvalue << std::endl;
 
+    /*-------------------------------------------
+     * przepisz algorytm zamiany powyzszy - zeby obslugiwal dowolny system tj czworkowy, osemkowy, piatkowy itd...
+     */
+
+
+    //DO POPRAWY - NIE DZIALA
+    // 
+    //int numberFormat;
+    //std::cout << "Wpisz system licbzowy (2-binarny, 4-czworkowy etc..)" << std::endl;
+    //std::cin >> numberFormat;
+    //std::string stringNumber;
+    //std::cout << "Wpisz liczbe z podanego systemu do zamniany na system dziesiatkowy" << std::endl;
+    //std::cin >> stringNumber;
+    //int ans = 0;
+    //int position = 1;
+    //for (int i = stringNumber.length() - 1; i >= 0; i--) {
+    //    char c = stringNumber[i];
+    //    int digit = c - '0';
+    //    ans += digit * position;
+    //    position *= numberFormat;
+    //}
+    //std::cout << "Liczba w systemie: "<< numberFormat<<" =  "<< ans << std::endl;
 
 
 

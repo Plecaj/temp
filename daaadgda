@@ -1,0 +1,195 @@
+#include <iostream>
+#include <cstdlib>
+#include <set>
+
+float sum(float a, float b = 3) {
+	return a + b;
+}
+
+int max(int a, int b) {
+	if (a > b) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+
+bool isTextsSame(std::string text1, std::string text2) {
+	return text1 == text2;
+}
+
+void genRandArr(int arr[], int size, int start = 1, int end = 10) {
+	for (int i = 0; i < size; i++) {
+		arr[i] = rand() % (end - start + 1) + start;
+	}
+}
+
+void printArr(int arr[], int size) {
+	for (int i = 0; i < size; i++) {
+		std::cout << arr[i] << '\t';
+	}
+	std::cout << std::endl;
+}
+
+int maxArrElem(int arr[], int size) {
+	int max = arr[0];
+	int maxIdx = 0;
+	for (int i = 1; i < size; i++){
+		if (arr[i] > max) {
+			max = arr[i];
+			maxIdx = i;
+		}
+	}
+	return maxIdx;
+}
+
+int findArrElem(int arr[], int size, int value) {
+	for (int i = 0; i < size; i++) {
+		if (arr[i] == value) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+void incrementByThree(int& a, int& b) {
+	a += 3;
+	b += 3;
+}
+
+bool genDistinctArr(int arr[], int size, int start, int end) {
+	int scope = end - start + 1;
+	if (scope <= size) {
+		return false;
+	}
+
+	std::set<int> s;
+	for (int i = 0; i < size; i++) {
+		int num = rand() % scope + start;
+		while (s.find(num) != s.end()) {
+			num = rand() % scope + start;
+		}
+		arr[i] = num;
+		s.insert(num);
+	}
+}
+
+
+int main()
+{
+	std::srand(time(NULL));
+
+	/*--1-----------------------------------------
+		napisz funkcję ktora pobiera 2 liczby float i zwraca ich sumę
+	*/
+
+
+	/*-2------------------------------------------
+	   napisz funkcję ktora pobiera 2 liczby int i zwraca większą
+	*/
+
+
+
+	/*-3------------------------------------------
+	   napisz funkcję ktora pobiera 2 teksty  i zwraca wynik - czy są równe czy nie
+	*/
+
+
+	/*-4------------------------------------------
+	  napisz funkcję ktora generuje liczby do tablicy (pobiera tablice i size, i zakres liczb od do.)
+	  co moze byc parametrami domyslnymi w tej funkcji?
+
+   */
+
+	const int arrSize = 5;
+	int arr[arrSize];
+	genRandArr(arr, arrSize, 2, 100);
+	printArr(arr, arrSize);
+	std::cout << maxArrElem(arr, arrSize) << std::endl;;
+
+
+   /*--5-----------------------------------------
+	  napisz funkcję ktora wyswietla zawartosc tablicy 1d. parametrem jest separator , np wyswietlanie po spacji, przecinku, myslniku itp. uzyj tez domyslnego
+   */
+
+
+   /*--6-----------------------------------------
+	   /*-------------------------------------------
+   * utworz tablice N=10 elementow np int bez znaku
+   utwórz funkcję która wypełni tą tablicę   N losowymi liczbami z zakresu a-b
+   */
+
+		/*--6.1-----------------------------------------
+		   napisz funkcję ktora wyswietla zawartosc tablicy z pkt 6.
+		*/
+
+
+
+		/*--6.2-----------------------------------------
+		   napisz funkcję szukającą największy element w tablicy int. Co powinna zwracac ?
+		*/
+
+
+
+
+		/*--6.3-----------------------------------------
+		   napisz funkcję sprawdzającą czy element (int) jest w tablicy. Co powinna zwracac ?
+		*/
+
+
+
+
+		/*--6.4-----------------------------------------
+		   zamien program zmieniajacy liczbę dziesiętna na binarną na funkcję
+		*/
+
+
+		/*--6.5-----------------------------------------
+		   zamien program zmieniajacy liczbę binarną na dziesiętną na funkcję
+		*/
+
+
+
+
+		/*--7-----------------------------------------
+		   napisz funkcję ktora wyswietla zawartosc tablicy 2d
+		*/
+
+
+		/*--8-----------------------------------------
+		   napisz funkcję ktora pobiera liczbę int i drugą liczbę i sumuje te 2 liczby i zwraca wynik.
+		   jesli nie podamy 2giego parametru (tj drugiej liczby), to domyslna wartosc to 3.
+		   Wynik wyświetl w programie głównym
+		*/
+
+	int num;
+	std::cin >> num;
+	std::cout << sum(num) << std::endl;
+
+
+
+		/*--9-----------------------------------------
+		   napisz funkcję ktora pobiera 2 liczby int i zwiększa każdą z nich o 3.
+		   Wynik wyświetl w programie głównym
+		*/
+
+
+	int a = 5;
+	int b = 8;
+	incrementByThree(a, b);
+	std::cout << a << " " << b << std::endl;
+
+
+		/*--10-----------------------------------------
+		 * napisz program lotto, losujacy 6 liczb z zakresu 1-49
+		 * liczby nie moga sie powtarzac
+		 * po wylosowaniu program pyta czy jeszcze raz, i jesli tak to losuje ponownie
+		 */
+
+	const int lottoSize = 6;
+	int lottoArr[lottoSize];
+	genDistinctArr(lottoArr, lottoSize, 1, 10);
+	printArr(lottoArr, lottoSize);
+
+}

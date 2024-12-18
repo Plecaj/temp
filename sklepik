@@ -1,0 +1,79 @@
+#include <iostream>
+#include <Windows.h>
+
+namespace Config {
+	static const int cartSize = 5;
+	//TODO: consty do kolorow
+}
+
+namespace Console {
+	void printColored(std::string text, int color) {
+		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(console, color);
+		std::cout << text << std::endl;
+		SetConsoleTextAttribute(console, 7); // Reset color
+	}
+	void printColored(float num, int color) {
+		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(console, color);
+		std::cout << num << std::endl;
+		SetConsoleTextAttribute(console, 7); // Reset color
+	}
+	void printColored(char character, int color) {
+		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(console, color);
+		std::cout << character << std::endl;
+		SetConsoleTextAttribute(console, 7); // Reset color
+	}
+}
+
+class Shop {
+public:
+	Shop()
+		:m_shouldRun(true), m_index(0){}
+	bool drawCart(){
+		for (int i = 0; i < m_index; i++) {
+			// Consty do kolorow!!!
+			Console::printColored(m_products[i].name, 11);
+			Console::printColored(':', 15);
+			Console::printColored(m_products[i].price, 10);
+		}
+	}
+	bool addProduct(std::string name, float price){
+		Product product(name, price);
+		m_products[m_index] = product;
+	}
+	bool deleteProduct(){
+		m_index--;
+	}
+	bool deleteWholeCart(){
+		m_index = 0;
+	}
+	bool pay(){
+		deleteWholeCart();
+		//ile, reszta itd
+	}
+	bool dropSession() { m_shouldRun = false; }
+	bool shouldRun() { return m_shouldRun; }
+private:
+	Product m_products[Config::cartSize];
+	int m_index;
+	bool m_shouldRun;
+};
+
+class Product {
+public:
+	Product(){}
+	Product(std::string name, float price)
+		:name(name), price(price){}
+public:
+	std::string name;
+	float price;
+};
+
+int main() {
+	Shop shop;
+	while (shop.shouldRun()) {
+
+	}
+}
